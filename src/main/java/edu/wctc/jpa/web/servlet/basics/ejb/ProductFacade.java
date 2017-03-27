@@ -27,8 +27,8 @@ public class ProductFacade extends AbstractFacade<Product> {
         return em;
     }
     
-    public List<Product> findByPurchaseCost(BigDecimal cost){
-        String jpql = "select p from Product p where p.purchaseCost = ?1";
+    public List<Product> findPurchaseCostLessThan(BigDecimal cost){
+        String jpql = "select p from Product p where p.purchaseCost < ?1";
         
         TypedQuery<Product> q =
                 getEntityManager().createQuery(jpql, Product.class);
